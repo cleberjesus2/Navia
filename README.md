@@ -1,4 +1,5 @@
-*Navia*: Conectando Pessoas à Sustentabilidade e ao Consumo Consciente
+# NAVIA: Conectando Pessoas à Sustentabilidade e ao Consumo Consciente
+
 
 Bem-vindo ao Navia! Um aplicativo projetado para promover eventos sustentáveis e facilitar o consumo consciente por meio de um marketplace de produtos ecológicos e recicláveis. O Navia une praticidade e responsabilidade ambiental, oferecendo uma plataforma intuitiva e acessível para todos.
 
