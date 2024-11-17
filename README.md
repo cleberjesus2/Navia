@@ -47,15 +47,18 @@ O Navia foi desenvolvido utilizando ferramentas modernas para oferecer um ambien
 
 Front-end: Ionic para um design responsivo e de fácil navegação em dispositivos móveis.
 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ionic/ionic-original.svg" alt="Ionic" width="40" height="40"/>
+
 Back-end: PHP para processamento de dados, com integração ao banco de dados.
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" width="40" height="40"/>
+
 
 Banco de Dados: MySQL para armazenamento e gerenciamento de informações com segurança e confiabilidade.
 
-[Ionic](https://upload.wikimedia.org/wikipedia/commons/a/a9/Ionic_Logo.svg)
 
-[MySQL](https://upload.wikimedia.org/wikipedia/commons/6/67/MySQL_logo.svg)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" width="40" height="40"/>
 
-[MySQL](https://upload.wikimedia.org/wikipedia/commons/6/67/MySQL_logo.svg)
 
 
 ⚙️ Como Funciona
