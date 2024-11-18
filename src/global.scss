@@ -49,3 +49,9 @@
     --color-selected: #224D53; // Cor do item selecionado
     --color: #000000; // Cor dos itens não selecionados
   }
+/* Adicione este CSS ao seu arquivo global (por exemplo, src/global.scss) */
+.alert-wrapper .alert-title { color: #000000; /* Altere esta cor para a cor que desejar */ font-weight: bold; /* Torne o texto negrito, se desejar */
+}
+
+.alert-wrapper { --background: #fffbf0; /* Substitua esta cor pelo tom de fundo que você deseja */ }
+

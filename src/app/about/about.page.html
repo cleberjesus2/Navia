@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <div class="barra">
+      <ion-title id="titulo-menu">Sobre o App</ion-title>
+      <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="" srcset="">  
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="color: black; font-size: 20px;">Bem-vindo ao Nosso App!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Este é um aplicativo de exemplo desenvolvido com o Ionic Framework.
+        Ele tem como objetivo fornecer aos usuários uma interface interativa e intuitiva,
+        além de funcionalidades fáceis de usar. Nossa missão é sempre melhorar a experiência do usuário e
+        oferecer as melhores ferramentas para facilitar o seu dia a dia.
+      </p>
+      <p>
+        Desenvolvido por uma equipe apaixonada por tecnologia e inovação. Esperamos que você goste de usar este app tanto quanto nós gostamos de criá-lo!
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+ <h2 id="equipe">Conheça a Equipe 👥👨‍💻</h2>
+
+  <ion-grid>
+    <ion-row>
+      <!-- Card da Ana Paula -->
+      <ion-col size="6" size-md="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-avatar slot="start">
+              <img src="assets/imagens/about/ana-paula.jpeg" alt="Ana Paula">
+            </ion-avatar>
+            <h2>Ana Paula Quinto</h2>
+            <p>Analista do Sistema e Documentação</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card do Cleber Jesus -->
+      <ion-col size="6" size-md="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-avatar slot="start">
+              <img src="assets/imagens/about/cleber-jesus.jpeg" alt="Cleber Jesus">
+            </ion-avatar>
+            <h2>Cleber Jesus</h2>
+            <p>Desenvolvedor do App, Back-end e Front-end</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card do Pedro Julio -->
+      <ion-col size="6" size-md="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-avatar slot="start">
+              <img src="assets/imagens/about/pedro-julio.jpeg" alt="Pedro Julio">
+            </ion-avatar>
+            <h2>Pedro Julio</h2>
+            <p>Responsável pela Experiência do Usuário (UX) e Banco de dados</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card da Isabela -->
+      <ion-col size="6" size-md="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-avatar slot="start">
+              <img src="assets/imagens/about/isabela.jpeg" alt="Isabela">
+            </ion-avatar>
+            <h2>Isabela</h2>
+            <p>Documentação e Análise do Sistema</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Card da Maria Luiza -->
+      <ion-col size="6" size-md="4">
+        <ion-card>
+          <ion-card-content>
+            <ion-avatar slot="start">
+              <img src="assets/imagens/about/maria-luiza.jpeg" alt="Maria Luiza">
+            </ion-avatar>
+            <h2>Maria Luiza</h2>
+            <p>Elaboração do Banco de dados e Análise do Sistema</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

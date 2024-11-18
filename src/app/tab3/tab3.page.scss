@@ -55,3 +55,27 @@
   .h2{
     color: black;
   }
+
+  ion-list {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  
+  ion-item {
+    --border-color: #e0e0e0; /* Cor da borda dos itens */
+    --background: #ffffff; /* Cor de fundo dos itens */
+    --color: #333; /* Cor do texto dos itens */
+    border-radius: 10px;
+    margin: 5px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  ion-icon {
+    color: #224D53; /* Cor do ícone */
+    margin-right: 10px;
+  }
+  
+  ion-label {
+    font-weight: bold; /* Negrito para o texto dos itens */
+  }
+  

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1">
+        <img src="assets/imagens/arrow-back-outline.svg">
+      </ion-back-button>
+    </ion-buttons>
+    <div class="barra">
+      <ion-title id="titulo-menu">Anunciar eventos</ion-title>
+      <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="">
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="saveEvent()">
+    <!-- Título do Evento -->
+    <ion-item>
+      <ion-label position="stacked">Título do Evento</ion-label>
+      <ion-input placeholder="Digite o título" [(ngModel)]="evento.titulo" name="titulo" required></ion-input>
+    </ion-item>
+
+    <!-- Descrição -->
+    <ion-item>
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-textarea placeholder="Descreva o evento" [(ngModel)]="evento.descricao" name="descricao" required></ion-textarea>
+    </ion-item>
+
+    <!-- Data e Hora -->
+    <ion-item>
+      <ion-label position="stacked">Data e Hora</ion-label>
+      <ion-datetime display-format="DD/MM/YYYY HH:mm" placeholder="Selecione a data e hora" [(ngModel)]="evento.data_hora" name="data_hora" required style="border-radius: 20px; margin-top: 10px;"></ion-datetime>
+    </ion-item>
+
+    <!-- Local -->
+    <ion-item>
+      <ion-label position="stacked">Local</ion-label>
+      <ion-input placeholder="Digite o endereço" [(ngModel)]="evento.local" name="local" required></ion-input>
+    </ion-item>
+
+    <!-- Categoria -->
+    <ion-item>
+      <ion-label position="stacked">Categoria</ion-label>
+      <ion-select placeholder="Selecione uma categoria" [(ngModel)]="evento.categoria" name="categoria" required>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="sustentabilidade">Sustentabilidade</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Reciclável</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="outros">Outros</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Upload de Imagem -->
+    <ion-item>
+      <ion-label position="stacked">Imagem do Evento (opcional)</ion-label>
+      <input type="file"  />
+    </ion-item>
+
+    <!-- CPF/CNPJ do Vendedor -->
+    <ion-item>
+      <ion-label position="stacked">CPF/CNPJ do Vendedor</ion-label>
+      <ion-input placeholder="Digite o CPF ou CNPJ" [(ngModel)]="evento.cpf_cnpj" name="cpf_cnpj" required></ion-input>
+    </ion-item>
+
+    <!-- Telefone do Vendedor -->
+    <ion-item>
+      <ion-label position="stacked">Telefone do Vendedor</ion-label>
+      <ion-input placeholder="Digite o telefone" [(ngModel)]="evento.telefone" name="telefone" type="tel" required></ion-input>
+    </ion-item>
+
+    <!-- Número de Seguranças -->
+    <ion-item>
+      <ion-label position="stacked">Número de Seguranças</ion-label>
+      <ion-input placeholder="Digite o número de seguranças (mínimo 2)" [(ngModel)]="evento.numero_segurancas" name="numero_segurancas" type="number" required min="2"></ion-input>
+    </ion-item>
+
+    <!-- Botão de Salvar -->
+    <ion-button expand="block" color="success" class="ion-margin-top" type="submit">
+      Salvar Evento
+    </ion-button>
+  </form>
+</ion-content>

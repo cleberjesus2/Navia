@@ -1,0 +1,69 @@
+ion-content {
+  --background: #f8f9fa;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  width: 60px;
+}
+
+#titulo-menu {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.card-anunciar, .card-dicas {
+  background-color: #ffffff; /* Fundo branco */
+  border: none; /* Remove a borda */
+  border-radius: 10px; /* Mantém os cantos arredondados */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+ion-card-title {
+  color: #333; /* Muda a cor do texto do título para cinza escuro */
+}
+
+ion-item {
+  background-color: transparent; /* Deixa os itens com fundo transparente */
+  border: none;
+}
+
+
+.card-anunciar ion-card-title {
+  color: #3880ff;
+}
+
+.card-dicas ion-card-title {
+  color: #10dc60;
+}
+
+ion-item {
+  --background: #ffffff;
+  --ion-item-background: #f8f9fa;
+  border-radius: 10px;
+  margin: 5px 0;
+  color: #000;
+  font-size: 20px;
+}
+
+ion-button {
+  margin-top: 20px;
+  --background: #3880ff;
+}
+
+ion-label {
+  color: #ffffff;
+}
+
+.title {
+  color: #ffffff;
+}
+
+ion-card{
+  --background: #fff;
+}
+

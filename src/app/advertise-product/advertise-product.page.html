@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <div class="barra">
+         <ion-title id="titulo-menu">Anunciar produtos</ion-title>
+         <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="" srcset="">
+        </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="card-anunciar">
+    <ion-card-header>
+      <ion-card-title style="color: rgb(0, 0, 0);">Anunciar Produto 🛒</ion-card-title>
+    </ion-card-header >
+    <ion-card-content style="background-color: white;">
+      <ion-list style="background-color: white;">
+        <ion-item>
+          <ion-label position="floating">Nome do Produto</ion-label>
+          <ion-input type="text" [(ngModel)]="productName" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Descrição do Produto</ion-label>
+          <ion-textarea [(ngModel)]="productDescription" required></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Preço R$</ion-label>
+          <ion-input type="number" [(ngModel)]="productPrice" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Imagem do Produto</ion-label>
+          <input type="file" (change)="onFileSelected($event)" />
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Estoque</ion-label>
+          <ion-input type="number" [(ngModel)]="productStock" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Categoria do Produto</ion-label>
+          <ion-select style="color: #000;" [(ngModel)]="productCategory" required>
+            <ion-select-option value="eletronicos">Eletrônicos</ion-select-option>
+            <ion-select-option value="roupas">Roupas</ion-select-option>
+            <ion-select-option value="alimentos">Alimentos</ion-select-option>
+            <ion-select-option value="beleza">Beleza</ion-select-option>
+            <ion-select-option value="brinquedos">Brinquedos</ion-select-option>
+            <ion-select-option value="moveis">Móveis</ion-select-option>
+            <ion-select-option value="livros">Livros</ion-select-option>
+            <ion-select-option value="automotivo">Automotivo</ion-select-option>
+            <ion-select-option value="esportes">Esportes</ion-select-option>
+            <ion-select-option value="outros">Outros</ion-select-option>
+            <!-- Adicione outras categorias conforme necessário -->
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">CPF/CNPJ do Vendedor</ion-label>
+          <ion-input type="text" [(ngModel)]="sellerCpfCnpj" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Telefone do Vendedor</ion-label>
+          <ion-input type="text" [(ngModel)]="sellerPhone" required></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" color="primary" (click)="advertiseProduct()">Anunciar</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card-dicas">
+    <ion-card-header>
+      <ion-card-title style="color: white;">Dicas de Segurança</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list  style="background-color: white;">
+        <ion-item>
+          <ion-icon name="alert-circle" slot="start"></ion-icon>
+          <ion-label>Verifique se todas as informações do produto estão corretas e atualizadas.</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="shield-checkmark" slot="start"></ion-icon>
+          <ion-label>Use imagens reais do produto para aumentar a confiabilidade do anúncio.</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="cash" slot="start"></ion-icon>
+          <ion-label>Defina um preço justo e competitivo com base no valor de mercado.</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="eye" slot="start"></ion-icon>
+          <ion-label>Revise seu anúncio antes de publicá-lo para garantir que não haja erros ou omissões.</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="leaf-outline" slot="start"></ion-icon>
+          <ion-label>Certifique-se de que o produto anunciado seja reciclável ou sustentável, alinhado aos princípios ecológicos do app.</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

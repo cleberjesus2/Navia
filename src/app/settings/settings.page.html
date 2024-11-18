@@ -1,13 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+    </ion-buttons>
+    <div class="barra">
+      <ion-title id="titulo-menu">Configurações</ion-title>
+      <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="" srcset="">
+      </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content screenfull="true">
+  <ion-list>
+    <!-- Segurança -->
+    <ion-item-divider>
+      <ion-label>Segurança</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>Ativar a autenticação de dois fatores</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <!-- Acessibilidade -->
+    <ion-item-divider>
+      <ion-label>Acessibilidade</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>Ativar modo de alto contraste</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Alterar o tamanho da fonte</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+
+    <!-- Armazenamento -->
+    <ion-item-divider>
+      <ion-label>Armazenamento</ion-label>
+    </ion-item-divider>
+    <ion-item>
+      <ion-label>Limpar cache a cada mês</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dados de Armazenamento</ion-label>
+      <ion-toggle slot="end"></ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>
+

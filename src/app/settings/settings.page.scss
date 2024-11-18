@@ -1,6 +1,36 @@
-ion-content {
-    padding: 16px;
-    color: #333;
+.barra{
+    display: flex;
+    justify-content: space-between;
+   
+  }
+
+ ion-content{
+  
+    --background: #ffff;
+ }
+ 
+ ion-toggle {
+    --handle-background: #163f40;
+    --background-checked: #3880ff;
   }
   
+  ion-button {
+    margin-top: 20px;
+    --background: #3880ff;
+  }
   
+  ion-item{
+    background-color: #ffff;
+    --background: #fff;
+    color: black;
+    font-size: 20px;
+  }
+
+  ion-list{
+    background-color: #ffff;
+  }
+  ion-item-divider{
+   background-color: #ffff;
+   font-size: 20px;
+  }
+

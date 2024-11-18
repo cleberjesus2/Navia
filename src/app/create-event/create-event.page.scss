@@ -1,0 +1,65 @@
+.barra{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+/* Define o fundo branco para o formulário */
+ion-content {
+    --background: #ffffff; /* Fundo branco */
+  }
+  
+  form {
+    background-color: #ffffff; /* Fundo branco para o form */
+    color: #000000; /* Texto preto */
+    border-radius: 15px; /* Deixa o formulário com bordas arredondadas (opcional) */
+    padding: 16px; /* Adiciona espaçamento interno */
+  }
+  
+  /* Estiliza os inputs e labels */
+  ion-label {
+    color: #000000; /* Cor preta para os textos dos labels */
+  }
+  
+  ion-input,
+  ion-textarea,
+  ion-datetime,
+  ion-select {
+    --background: #ffffff; /* Fundo branco dos campos */
+    --color: #000000; /* Cor do texto dentro dos campos */
+  }
+  
+  ion-item {
+    --background: transparent; /* Fundo transparente para os itens */
+    --color: #000000; /* Cor do texto dos itens */
+  }
+  
+  /* Estiliza o calendário do ion-datetime */
+
+
+  
+  /* Estiliza o menu de opções (dropdown do select) */
+  ion-select::part(menu) {
+    --background: #f5f5f5; /* Fundo do dropdown das opções */
+    --ion-text-color: #000000; /* Texto das opções */
+  }
+  
+  /* Estiliza as opções específicas dentro do menu */
+  ion-select-option {
+    --background: #ffffff; /* Fundo branco para as opções individuais */
+    --color: #000000; /* Texto preto para as opções */
+  }
+  
+  /* Adiciona um hover para as opções */
+  ion-select-option:hover {
+    --background: #e0e0e0; /* Fundo cinza claro ao passar o mouse */
+    --color: #000000; /* Mantém o texto preto */
+  }
+  ion-select {
+    color: #000000; /* Cor do texto preto para o seletor */
+  }
+  
+  ion-select-option {
+    --color: #000000; /* Cor do texto preto para as opções */
+  }
+  

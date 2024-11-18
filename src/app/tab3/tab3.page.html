@@ -1,111 +1,50 @@
 <ion-menu side="start" content-id="main-content">
-  <ion-header >
-    <ion-toolbar style="background-color: #224D53;" >
-      <ion-title>Menu </ion-title>
+  <ion-header>
+    <ion-toolbar style="background-color: #224D53;">
+      <ion-title>
+          Menu
+          <ion-icon name="home-outline"></ion-icon>
+      </ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content>
     <ion-list>
-         <ion-item routerLink="Notificações">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/sininho.png" alt="sino" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Notificações
-      </ion-item>
-      
-      <ion-item routerLink="Localizações">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/localizacao.png" alt="Localização" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Localizações
-      </ion-item>
-      
-      <ion-item routerLink="Configurações">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/configuracao.png" alt="Configurações" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Configurações
-      </ion-item>
-      
-      <ion-label class="topicos">Recursos informativos</ion-label>
-      
-      <ion-item routerLink="Dicas Sustentáveis">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/dica.png" alt="Dicas Sustentáveis" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Dicas Sustentáveis
-      </ion-item>
-      
-      <ion-item routerLink="Recomendações">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/recomendacao.png" alt="Recomendações" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Recomendações
-      </ion-item>
-      
-      <ion-label class="topicos">Funcionalidades</ion-label>
-      
-      <ion-item routerLink="Favoritos">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/favorito.png" alt="Favoritos" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Favoritos
-      </ion-item>
-      
-      <ion-item routerLink="Histórico de Atividades">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/historico.png" alt="Histórico de Atividades" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Histórico de Atividades
-      </ion-item>
-      
-      <ion-item routerLink="Crie seu evento">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/evento.png" alt="Crie seu evento" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Crie seu evento
-      </ion-item>
-      
-      <ion-item routerLink="Anúncie seu produto">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/anuncio.png" alt="Anúncie seu produto" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Anúncie seu produto
+      <ion-item routerLink="/about" routerDirection="forward">
+        <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+        <ion-label>Sobre o App</ion-label>
       </ion-item>
 
-      
-      <ion-item routerLink="Feedback">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/feedback.png" alt="Feedback" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Feedback
+      <ion-item routerLink="/settings" routerDirection="forward">
+        <ion-icon name="settings-outline" slot="start"></ion-icon>
+        <ion-label>Configurações</ion-label>
       </ion-item>
-      
-      <ion-label class="topicos">Suporte</ion-label>
-      
-      <ion-item routerLink="Sobre o App">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/sobre.png" alt="Sobre o App" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Sobre o App
+
+      <ion-item routerLink="/advertise-product" routerDirection="forward">
+        <ion-icon name="pricetag-outline" slot="start"></ion-icon>
+        <ion-label>Anuncie seu Produto</ion-label>
       </ion-item>
-      
-      <ion-item routerLink="Política de Privacidade e Termos de Uso">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/politica.png" alt="Política de Privacidade e Termos de Uso" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Política de Privacidade e Termos de Uso
+
+      <ion-item routerLink="/advertise-event" routerDirection="forward">
+        <ion-icon name="calendar-outline" slot="start"></ion-icon>
+        <ion-label>Anuncie seu Evento</ion-label>
       </ion-item>
-      
-      <ion-item routerLink="Ajuda e suporte">
-        <ion-avatar class="icons-item">
-          <img src="assets/imagens/ajuda.png" alt="Ajuda e suporte" style="width: 24px; height: 24px;">
-        </ion-avatar>
-        Ajuda e suporte
+
+      <ion-item routerLink="/terms" routerDirection="forward">
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        <ion-label>Termos de Uso</ion-label>
+      </ion-item>
+
+      <ion-item (click)="presentLogoutAlert()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Logout</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
+
+
+
 
 <div id="main-content">
   <ion-header  [translucent]="true" style="color: #E1E1E1 ;">
@@ -126,10 +65,21 @@
         <img src="assets/imagens/user.png" alt="Foto de Perfil">
       </div>
       <div class="profile-info">
-        <h2>{{ userName }}</h2>
-        <p>{{ userEmail }}</p>
+        <ion-item>
+          <ion-label position="stacked">Nome</ion-label>
+          <ion-input [(ngModel)]="userName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="userEmail"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Telefone</ion-label>
+          <ion-input [(ngModel)]="userPhone"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="updateProfile()">Salvar Alterações</ion-button>
       </div>
     </div>
   </ion-content>
-  
+    
   

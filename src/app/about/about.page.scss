@@ -1,0 +1,74 @@
+ion-content {
+    --background: #ffffff; /* Fundo branco */
+  }
+  
+  ion-toolbar {
+    --background: #224D53; /* Verde suave no toolbar */
+    --color: #ffffff; /* Texto branco no toolbar */
+  }
+  
+  .title-highlight {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #224D53; /* Verde suave para o título "Conheça a Equipe" */
+  }
+  
+  .team-card {
+    border: 1px solid #224D53; /* Borda verde suave */
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+    background-color: #E5F4F3; /* Verde pastel claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  
+  .team-card:hover {
+    transform: scale(1.05); /* Efeito de hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  ion-card{
+    --background: #fff;  
+    color: #000;
+    box-shadow: #224D53;
+  }
+
+  ion-card-content {
+    text-align: center;
+  }
+  
+  ion-avatar {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+    border: 2px solid #224D53; /* Borda verde suave ao redor do avatar */
+    border-radius: 50%;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000000;
+    margin: 10px 0 5px;
+    
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #000000;
+  }
+  
+  
+  .barra{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  #equipe{
+    margin-left: 15px;
+    color: #000;
+    font-size: 1.4rem;
+  }
