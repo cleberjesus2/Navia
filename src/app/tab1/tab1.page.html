@@ -2,15 +2,14 @@
   <ion-header>
     <ion-toolbar style="background-color: #224D53;">
       <ion-title>
-          Menu
-          <ion-icon name="home-outline"></ion-icon>
+        Menu
+        <ion-icon name="home-outline"></ion-icon>
       </ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-      
       <ion-item routerLink="/about" routerDirection="forward">
         <ion-icon name="information-circle-outline" slot="start"></ion-icon>
         <ion-label>Sobre o App</ion-label>
@@ -44,120 +43,48 @@
   </ion-content>
 </ion-menu>
 
-
-
-
+<!-- Conteúdo principal -->
 <div id="main-content">
-  <ion-header  [translucent]="true" style="color: #E1E1E1 ;">
-    <ion-toolbar style="background-color: #E1E1E1 ;">
+  <ion-header [translucent]="true" style="color: #E1E1E1;">
+    <ion-toolbar style="background-color: #E1E1E1;">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <div class="barra">
-      <ion-title id="titulo-menu">Eventos</ion-title>
-      <img id="logo" width="72px" src="assets/imagens/navia-logo.png" alt="" srcset="">
-    </div>
+        <ion-title id="titulo-menu">Eventos</ion-title>
+        <img id="logo" width="72px" src="assets/imagens/navia-logo.png" alt="" />
+      </div>
     </ion-toolbar>
   </ion-header>
 
+
+
   <ion-content [fullscreen]="true" class="ion-padding">
     <!-- Barra de pesquisa -->
-    <ion-searchbar id="pesquisa" placeholder="Eventos e Locais"></ion-searchbar>
+    <ion-searchbar 
+      id="pesquisa" 
+      placeholder="Eventos e Locais" 
+      (ionInput)="filterEventos($event)">
+    </ion-searchbar>  
   
-    <!-- Seção: Eventos de Coleta -->
-    <h3 class="titulo-secao">Eventos de Coleta</h3>
-    <div class="carousel-container">
-      <ion-slides pager="true">
-        <ion-slide *ngFor="let evento of eventosColeta">
-          <img [src]="evento.imagem" alt="{{ evento.nome }}" class="slide-image" (click)="verEvento(evento)">
-          <h2 class="slide-title">{{ evento.nome }}</h2>
-          <div class="evento-info">
-            <ion-icon name="calendar-outline"></ion-icon>
-            <span>{{ evento.data }}</span>
-          </div>
-          <div class="evento-info">
-            <ion-icon name="location-outline"></ion-icon>
-            <span>{{ evento.endereco }}</span>
-          </div>
-        </ion-slide>
-      </ion-slides>
-    </div>
-  
-    <!-- Seção: Eventos de Reciclagem -->
-    <h3 class="titulo-secao">Eventos de Reciclagem</h3>
-    <div class="carousel-container">
-      <ion-slides pager="true">
-        <ion-slide *ngFor="let evento of eventosReciclagem">
-          <img [src]="evento.imagem" alt="{{ evento.nome }}" class="slide-image" (click)="verEvento(evento)">
-          <h2 class="slide-title">{{ evento.nome }}</h2>
-          <div class="evento-info">
-            <ion-icon name="calendar-outline"></ion-icon>
-            <span>{{ evento.data }}</span>
-          </div>
-          <div class="evento-info">
-            <ion-icon name="location-outline"></ion-icon>
-            <span>{{ evento.endereco }}</span>
-          </div>
-        </ion-slide>
-      </ion-slides>
-    </div>
-  
-    <!-- Seção: Troca de Produtos Sustentáveis -->
-    <h3 class="titulo-secao">Troca de Produtos Sustentáveis</h3>
-    <div class="carousel-container">
-      <ion-slides pager="true">
-        <ion-slide *ngFor="let evento of eventosTroca">
-          <img [src]="evento.imagem" alt="{{ evento.nome }}" class="slide-image" (click)="verEvento(evento)">
-          <h2 class="slide-title">{{ evento.nome }}</h2>
-          <div class="evento-info">
-            <ion-icon name="calendar-outline"></ion-icon>
-            <span>{{ evento.data }}</span>
-          </div>
-          <div class="evento-info">
-            <ion-icon name="location-outline"></ion-icon>
-            <span>{{ evento.endereco }}</span>
-          </div>
-        </ion-slide>
-      </ion-slides>
-    </div>
-  
-    <!-- Seção: Palestras -->
-    <h3 class="titulo-secao">Palestras</h3>
-    <div class="carousel-container">
-      <ion-slides pager="true">
-        <ion-slide *ngFor="let evento of eventosPalestras">
-          <img [src]="evento.imagem" alt="{{ evento.nome }}" class="slide-image" (click)="verEvento(evento)">
-          <h2 class="slide-title">{{ evento.nome }}</h2>
-          <div class="evento-info">
-            <ion-icon name="calendar-outline"></ion-icon>
-            <span>{{ evento.data }}</span>
-          </div>
-          <div class="evento-info">
-            <ion-icon name="location-outline"></ion-icon>
-            <span>{{ evento.endereco }}</span>
-          </div>
-        </ion-slide>
-      </ion-slides>
-    </div>
-  
-    <!-- Seção: Feira de Produtos Naturais e Orgânicos -->
-    <h3 class="titulo-secao">Feira de Produtos Naturais e Orgânicos</h3>
-    <div class="carousel-container">
-      <ion-slides pager="true">
-        <ion-slide *ngFor="let evento of eventosFeira">
-          <img [src]="evento.imagem" alt="{{ evento.nome }}" class="slide-image" (click)="verEvento(evento)">
-          <h2 class="slide-title">{{ evento.nome }}</h2>
-          <div class="evento-info">
-            <ion-icon name="calendar-outline"></ion-icon>
-            <span>{{ evento.data }}</span>
-          </div>
-          <div class="evento-info">
-            <ion-icon name="location-outline"></ion-icon>
-            <span>{{ evento.endereco }}</span>
-          </div>
-        </ion-slide>
-      </ion-slides>
-      
-    </div>
+    <!-- Seção: Eventos -->
+    <h3 class="titulo-secao">Eventos</h3>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let evento of filteredEventos">
+          <ion-card (click)="verEvento(evento)">
+            <img *ngIf="evento.imagem" [src]="'http://localhost/app/uploads/' + evento.imagem" alt="{{ evento.nome }}" />
+            <ion-card-header>
+              <ion-card-title>{{ evento.nome }}</ion-card-title>
+              <ion-card-subtitle>{{ evento.data | date: 'dd/MM/yyyy HH:mm' }}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p>{{ evento.descricao }}</p>
+              <p><strong>Local:</strong> {{ evento.endereco }}</p>
+              <p><strong>Categoria:</strong> {{ evento.categoria }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-content>
-  

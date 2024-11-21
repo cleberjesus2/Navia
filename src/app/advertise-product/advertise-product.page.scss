@@ -67,3 +67,15 @@ ion-card{
   --background: #fff;
 }
 
+.custom-icon {
+  width: 24px; /* Largura dos ícones */
+  height: 24px; /* Altura dos ícones */
+  margin-right: 10px; /* Espaço entre o ícone e o texto */
+  vertical-align: middle; /* Alinhamento vertical */
+}
+
+ion-item img.custom-icon {
+  display: inline-block;
+  position: relative;
+  top: 2px; /* Ajuste fino do alinhamento vertical */
+}

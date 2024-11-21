@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -58,14 +60,23 @@ export class ServiceProviderService {
   }
 
   // Adicionando funções para eventos
+  // Método para listar eventos
   getEventos(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/get_eventos.php`);
+    return this.http.get<any>(`${this.apiUrl}/listar_eventos.php`);
   }
 
-  addEvento(evento: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/add_event.php`, evento);
+  // Função para adicionar um novo evento
+  addEvento(formData: FormData) {
+    return this.http.post('http://localhost/app/add_evento.php', formData)
+      .pipe(
+        catchError((error) => {
+          console.error('Erro ao enviar evento:', error);
+          return throwError(() => new Error('Erro ao salvar evento'));
+        })
+      );
   }
 
+  // Função para upload de imagem
   uploadImage(file: File): Observable<any> {
     const formData = new FormData();
     formData.append('file', file);

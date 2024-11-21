@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form (ngSubmit)="saveEvent()">
+  <form (ngSubmit)="saveEvent()">  <!-- O método saveEvent() é chamado aqui ao submeter o formulário -->
     <!-- Título do Evento -->
     <ion-item>
       <ion-label position="stacked">Título do Evento</ion-label>
@@ -42,8 +42,11 @@
     <ion-item>
       <ion-label position="stacked">Categoria</ion-label>
       <ion-select placeholder="Selecione uma categoria" [(ngModel)]="evento.categoria" name="categoria" required>
-        <ion-select-option style="color: rgb(0, 0, 0);" value="sustentabilidade">Sustentabilidade</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="sustentabilidade">Palestras</ion-select-option>
         <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Reciclável</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Trocas</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Feiras</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Coletas</ion-select-option>
         <ion-select-option style="color: rgb(0, 0, 0);" value="outros">Outros</ion-select-option>
       </ion-select>
     </ion-item>
@@ -51,9 +54,9 @@
     <!-- Upload de Imagem -->
     <ion-item>
       <ion-label position="stacked">Imagem do Evento (opcional)</ion-label>
-      <input type="file"  />
+      <input type="file" (change)="onFileSelected($event)" />
     </ion-item>
-
+    
     <!-- CPF/CNPJ do Vendedor -->
     <ion-item>
       <ion-label position="stacked">CPF/CNPJ do Vendedor</ion-label>

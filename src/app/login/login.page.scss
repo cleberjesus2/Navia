@@ -12,11 +12,6 @@ ion-content {
     color: #ffffff; // Define o texto principal para branco
   }
   
-  .logo {
-    width: 100px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
   
   h1 {
     font-size: 24px;
@@ -32,23 +27,21 @@ ion-content {
   
   ion-item {
     margin: 8px 0;
-    --highlight-color-focused: #3880ff;
-    background: #333333; // Fundo do input para combinar com o tema escuro
-    --color: #ffffff; // Cor do texto no input
     border-radius: 8px;
+    color: #000;
+    --background: #ffffff;
+    border: solid #224D53;
   }
   
   .login-button {
     margin-top: 16px;
-    background-color: #3880ff; // Cor do botão de login
     color: #ffffff;
   }
   
   .forgot-password {
     margin-top: 10px;
     text-align: center;
-  
-    a {
+    a{
       color: #3880ff;
       text-decoration: none;
     }
@@ -74,4 +67,9 @@ ion-content {
     color: #000;
   }
 
-  
+  .logo {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Mantém a proporção */
+    margin: 20px auto; /* Centraliza e adiciona espaçamento */
+    display: block; /* Garante centralização */
+  }
