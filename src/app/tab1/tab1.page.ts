@@ -24,6 +24,7 @@ export class Tab1Page {
   eventosPalestras: Evento[] = [];
   eventosFeira: Evento[] = [];
 
+  // Inicializa filteredEventos como um array vazio
   filteredEventos: Evento[] = [];
 
   constructor(
@@ -91,12 +92,13 @@ export class Tab1Page {
     this.serviceProvider.getEventos().subscribe(
       (data: Evento[]) => {
         console.log('Dados dos eventos recebidos:', data);
-        this.filteredEventos = data; // Atribua diretamente para ver se os dados aparecem
+        // Armazena os eventos recebidos em um array específico
+        this.eventosColeta = data; // Aqui você deve ajustar para a forma como os dados são recebidos
+        this.filteredEventos = data; // Inicializa filteredEventos com os dados recebidos
       },
       (error) => {
         console.error('Erro ao carregar eventos', error);
       }
     );
   }
-  
 }

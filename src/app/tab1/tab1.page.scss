@@ -2,7 +2,8 @@
   margin-top: 20px;
   font-size: 1.5em;
   text-align: center;
-  color: #4caf50; /* Cor verde para destacar os títulos das seções */
+  color: #000000; /* Cor verde para destacar os títulos das seções */
+   
 }
 
 .carousel-container {
@@ -49,89 +50,98 @@ ion-slide img {
   cursor: pointer;
 }
 
+#pesquisa {
+  --background: white;
+  color: black;
+  --border-radius: 17px;
+}
 
-  #pesquisa{
-    --background: white;
-    color: black;
-    --border-radius: 17px;   
-  }
+h3 {
+  color: black;
+}
 
+ion-content {
+  --background: #f0f0f0; /* Substitua pelo código de cor desejado */
+}
 
-  h3{
-    color: black;  
-  }
+.barra {
+  display: flex;
+  justify-content: space-between;
+}
 
-  ion-content {
-    --background: #f0f0f0; // Substitua pelo código de cor desejado
-  }
+.menu-icon {
+  margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+  color: #ffffff; /* Cor branca para o ícone */
+  font-size: 1.5em; /* Tamanho do ícone */
+}
 
-  .barra{
-    display: flex;
-    justify-content: space-between;
+ion-content {
+  --background: #f0f0f0; /* Cor de fundo do menu */
+}
 
-  }
-  .menu-icon {
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
-    color: #ffffff; /* Cor branca para o ícone */
-    font-size: 1.5em; /* Tamanho do ícone */
-  }
-  
-  ion-content {
-    --background: #f0f0f0; /* Cor de fundo do menu */
-  }
-  
-  ion-list {
-    margin-top: 0;
-    padding-top: 0;
-    background-color: #ffffff;
-  }
-  
-  ion-item {
-    --border-color: #e0e0e0; /* Cor da borda dos itens */
-    --background: #ffffff; /* Cor de fundo dos itens */
-    --color: #333; /* Cor do texto dos itens */
-    border-radius: 10px;
-    margin: 5px 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  ion-icon {
-    color: #224D53; /* Cor do ícone */
-    margin-right: 10px;
-  }
-  
-  ion-label {
-    font-weight: bold; /* Negrito para o texto dos itens */
-  }
-  
-  .alertController{
-    color: #ffffff;
-  }
+ion-list {
+  margin-top: 0;
+  padding-top: 0;
+  background-color: #ffffff;
+}
 
-  .slide-image {
-    width: 100%;
-    height: auto;
-    display: block;  /* Assegura que as imagens sejam exibidas como blocos */
-  }
-  .event-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .card-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .evento-info {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-  }
-  
-  .evento-info ion-icon {
-    margin-right: 5px;
-  }
-  
-  
+ion-item {
+  --border-color: #e0e0e0; /* Cor da borda dos itens */
+  --background: #ffffff; /* Cor de fundo dos itens */
+  --color: #333; /* Cor do texto dos itens */
+  border-radius: 10px;
+  margin: 5px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ion-icon {
+  color: #224D53; /* Cor do ícone */
+  margin-right: 10px;
+}
+
+ion-label {
+  font-weight: bold; /* Negrito para o texto dos itens */
+}
+
+.alertController {
+  color: #ffffff;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  display: block; /* Assegura que as imagens sejam exibidas como blocos */
+}
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px; /* Tamanho fixo para as imagens dos cards */
+  object-fit: cover; /* Para garantir que a imagem se ajuste bem */
+}
+
+.evento-info {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.evento-info ion-icon {
+  margin-right: 5px;
+}
+
+ion-card {
+  --background: #ffffff; /* Fundo branco */
+  --color: #000000;      /* Texto preto */
+}
+
+ion-card-title, 
+ion-card-subtitle, 
+ion-card-content p {
+  color: #000000; /* Garante que o texto seja preto */
+}

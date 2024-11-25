@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastController } from '@ionic/angular'; // Importando ToastController
 
 @Component({
   selector: 'app-advertise-product',
@@ -16,34 +17,46 @@ export class AdvertiseProductPage {
   sellerPhone: string = '';
   selectedFile: File | null = null;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private toastController: ToastController) {} // Injetando ToastController
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
-  advertiseProduct() {
-    const productData = {
-      name: this.productName,
-      description: this.productDescription,
-      price: this.productPrice,
-      stock: this.productStock,
-      category: this.productCategory,
-      cpfCnpj: this.sellerCpfCnpj,
-      telefone: this.sellerPhone,
-      // No need to send the image in this example. You'll need additional handling for file uploads.
-    };
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000, // Tempo em milissegundos que o toast ficará visível
+      position: 'bottom', // Posição do toast (pode ser 'top', 'middle', 'bottom')
+      color: 'success', // Você pode usar 'success', 'danger', 'warning', etc.
+    });
+    toast.present();
+  }
 
-    this.http.post('http://localhost/app/add_product.php', productData)
-      .subscribe((response: any) => {
+  advertiseProduct() {
+    const formData = new FormData();
+    formData.append('name', this.productName);
+    formData.append('description', this.productDescription);
+    formData.append('price', this.productPrice.toString());
+    formData.append('stock', this.productStock.toString());
+    formData.append('category', this.productCategory);
+    formData.append('cpfCnpj', this.sellerCpfCnpj);
+    formData.append('telefone', this.sellerPhone);
+
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile, this.selectedFile.name);
+    }
+
+    this.http.post('http://localhost/app/add_product.php', formData)
+      .subscribe(async (response: any) => {
         if (response.status === 'sucesso') {
-          alert('Produto anunciado com sucesso!');
+          await this.presentToast('Produto anunciado com sucesso!'); // Mostra o toast de sucesso
         } else {
-          alert('Erro ao anunciar produto: ' + response.mensagem);
+          await this.presentToast('Erro ao anunciar produto: ' + response.mensagem); // Mostra o toast de erro
         }
-      }, error => {
+      }, async error => {
         console.error('Erro ao enviar dados', error);
-        alert('Erro ao anunciar produto');
+        await this.presentToast('Erro ao anunciar produto'); // Mostra o toast de erro
       });
   }
 }

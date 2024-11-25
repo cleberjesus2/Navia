@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ServiceProviderService } from '../service-provider.service'; 
-import { IonicModule } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-register',
@@ -15,33 +15,56 @@ export class RegisterPage {
   senha: string = '';
   confirmarSenha: string = '';
 
-  constructor(private navCtrl: NavController, private serviceProvider: ServiceProviderService) {}
+  constructor(private navCtrl: NavController, private serviceProvider: ServiceProviderService, private toastController: ToastController) {}
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000, 
+      position: 'bottom', 
+      color: 'light'
+    });
+    await toast.present();
+  }
 
   register() {
     if (this.senha !== this.confirmarSenha) {
-      alert('As senhas não coincidem');
+      this.presentToast('As senhas não coincidem');
       return;
     }
-
+  
+    // Verificar se todos os campos estão preenchidos
+    if (!this.nome || !this.telefone || !this.email || !this.senha) {
+      this.presentToast('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+  
     const postData = {
       nome: this.nome,
       telefone: this.telefone,
       email: this.email,
       senha: this.senha
     };
-
+  
     this.serviceProvider.register(postData).subscribe(
       response => {
         console.log(response);
         if (response.status === "sucesso") {
-          this.navCtrl.navigateRoot('/tabs');
+          this.presentToast('Registro realizado com sucesso!');
+      
         } else {
-          alert(response.mensagem);
+          this.presentToast(response.mensagem);
         }
       },
       error => {
         console.error('Erro na requisição', error);
-        alert('Erro ao registrar usuário');
+        if (error.error) {
+          // Se houver uma resposta de erro do servidor
+          console.error('Resposta do servidor:', error.error);
+          this.presentToast(error.error.mensagem || 'Erro ao registrar usuário');
+        } else {
+          this.presentToast('Erro ao registrar usuário');
+        }
       }
     );
   }

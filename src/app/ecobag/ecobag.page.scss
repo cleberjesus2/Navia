@@ -1,0 +1,171 @@
+.product-container {
+    text-align: center;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    color: #038000;
+  }
+  
+  .product-category {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .add-to-cart-button {
+    margin-top: 20px;
+  }
+
+  ion-content{
+    --background: #ffff;
+  }
+
+  .product-container h1 {
+    color: black; /* Altere a cor conforme necessário */
+    font-size: 24px; /* Ajuste o tamanho da fonte */
+    margin: 10px 0; /* Adicione margem para espaçamento */
+  }
+
+   ion-toast{
+    --background: #ffffff; /* Altere para a cor desejada */
+    --color: rgb(0, 0, 0); /* Altere a cor do texto se necessário */
+  }
+
+  .barra {
+    display: flex;
+    justify-content: space-between;
+  }
+  .product-container {
+    text-align: center;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    color: #038000;
+  }
+  
+  .product-category {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .add-to-cart-button {
+    margin-top: 20px;
+  }
+  
+  .comprar-button {
+    margin-top: 20px;
+    --background: #4CAF50; /* Cor de fundo verde */
+    --color: #ffffff; /* Cor da letra branca */
+  }
+  
+  ion-content {
+    --background: #ffff;
+  }
+  
+  .product-container h1 {
+    color: black; /* Altere a cor conforme necessário */
+    font-size: 24px; /* Ajuste o tamanho da fonte */
+    margin: 10px 0; /* Adicione margem para espaçamento */
+  }
+  
+  ion-toast {
+    --background: #ffffff; /* Altere para a cor desejada */
+    --color: rgb(0, 0, 0); /* Altere a cor do texto se necessário */
+  }
+  
+  .barra {  
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .product-container {
+    text-align: center;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    color: #038000;
+  }
+  
+  .product-category {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .add-to-cart-button {
+    margin-top: 20px;
+  }
+  
+  .comprar-button {
+    margin-top: 20px;
+    --background: #4CAF50; /* Cor de fundo verde */
+    --color: #ffffff; /* Cor da letra branca */
+  }
+  
+  ion-content {
+    --background: #ffff;
+  }
+  
+  .product-container h1 {
+    color: black; /* Altere a cor conforme necessário */
+    font-size: 24px; /* Ajuste o tamanho da fonte */
+    margin: 10px 0; /* Adicione margem para espaçamento */
+  }
+  
+  ion-toast {
+    --background: #ffffff; /* Altere para a cor desejada */
+    --color: rgb(0, 0, 0); /* Altere a cor do texto se necessário */
+  }
+  
+  .barra {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* ecobag.page.scss */
+  .custom-alert {
+    color: #038000;
+    --background: #000000; // Cor de fundo do alerta
+    --border-radius: 10px; // Bordas arredondadas
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Sombra
+  }
+  
+  .custom-input {
+    // Estiliza os campos de entrada
+    --padding-start: 10px; // Espaçamento interno à esquerda
+    --padding-end: 10px; // Espaçamento interno à direita
+    --padding-top: 10px; // Espaçamento interno no topo
+    --padding-bottom: 10px; // Espaçamento interno na parte inferior
+    --background: #f9f9f9; // Cor de fundo dos inputs
+    --border: 1px solid #ccc; // Borda dos inputs
+    --border-radius: 5px; // Bordas arredondadas para os inputs
+    --color: #333; // Cor do texto
+    font-size: 16px; // Tamanho da fonte
+  }
+  
+  .custom-input:focus {
+    // Estilo quando o input está em foco
+    --border-color: #007bff; // Cor da borda quando em foco
+    --background: #fff; // Cor de fundo quando em foco
+  }
+  
+  .secondary {
+    // Estilo para o botão de cancelar
+    color: #ff3b30; // Cor do texto do botão cancelar
+  }

@@ -1,26 +1,30 @@
-.barra{
-    display: flex;
-    justify-content: space-between;
+.barra {
+  display: flex;
+  justify-content: space-between;
+}
 
-  }
-  ion-content {
-    --background: #ffffff; /* Fundo branco */
-  }
-  
-  ion-header, ion-toolbar, ion-title, ion-label, ion-item p, ion-item h2 {
-    color: #000000; /* Texto preto */
-    font-size: 17px;
-  }
-  
-  ion-item {
-    --background: #ffffff; /* Fundo dos itens em branco */
-  }
-  
-  ion-list{
-    background-color: #ffffff;
-  }  
+ion-content {
+  --background: #ffffff; /* Fundo branco */
+}
 
-  h2 { 
-   font-weight: bold; 
-   color: #000000
-    }
+ion-header, ion-toolbar, ion-title, ion-label, ion-item p, ion-item h2 {
+  color: #000000; /* Texto preto */
+  font-size: 17px;
+}
+
+ion-item {
+  --background: #ffffff; /* Fundo dos itens em branco */
+}
+
+ion-list {
+  background-color: #ffffff;
+}
+
+h2 { 
+  font-weight: bold; 
+  color: #000000;
+}
+
+ion-back-button {
+  --color: #ffffff; /* Define a cor da seta como branca */
+}

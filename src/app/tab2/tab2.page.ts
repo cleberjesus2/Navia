@@ -25,20 +25,20 @@ export class Tab2Page implements OnInit {
 
   loadProducts() {
     this.serviceProvider.getProducts().subscribe(
-      (response: any) => {
-        if (response.status === 'sucesso') {
-          this.produtos = response.produtos;
-        } else {
-          alert('Erro ao carregar produtos');
+        (response: any) => {
+            if (response.status === 'sucesso') {
+                this.produtos = response.produtos;
+                console.log(this.produtos); // Verifique a estrutura do objeto aqui
+            } else {
+                alert('Erro ao carregar produtos');
+            }
+        },
+        (error: any) => {
+            console.error('Erro ao carregar produtos', error);
+            alert('Erro na requisição de produtos');
         }
-      },
-      (error: any) => {
-        console.error('Erro ao carregar produtos', error);
-        alert('Erro na requisição de produtos');
-      }
     );
-  }
-
+}
   rotateAndNavigate(productId: number, event: any) {
     const pageMap: Record<number, string> = {
       1: '/escovadedente',
@@ -66,6 +66,7 @@ export class Tab2Page implements OnInit {
     }, 1000); // Atraso para a animação (1000ms = 1s)
   }
 
+
   async presentLogoutAlert() {
     const alert = await this.alertController.create({
       header: 'Confirmação',
@@ -91,4 +92,11 @@ export class Tab2Page implements OnInit {
 
     await alert.present();
   }
+
+  selectedFile: File | null = null;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  
 }

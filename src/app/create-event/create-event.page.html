@@ -13,6 +13,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <h2 style="color: black;">Anuncie seu Evento 📅♻️</h2>
+
   <form (ngSubmit)="saveEvent()">  <!-- O método saveEvent() é chamado aqui ao submeter o formulário -->
     <!-- Título do Evento -->
     <ion-item>
@@ -44,9 +46,9 @@
       <ion-select placeholder="Selecione uma categoria" [(ngModel)]="evento.categoria" name="categoria" required>
         <ion-select-option style="color: rgb(0, 0, 0);" value="sustentabilidade">Palestras</ion-select-option>
         <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Reciclável</ion-select-option>
-        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Trocas</ion-select-option>
-        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Feiras</ion-select-option>
-        <ion-select-option style="color: rgb(0, 0, 0);" value="reciclável">Coletas</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="Trocas">Trocas</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="Feiras">Feiras</ion-select-option>
+        <ion-select-option style="color: rgb(0, 0, 0);" value="Coletas">Coletas</ion-select-option>
         <ion-select-option style="color: rgb(0, 0, 0);" value="outros">Outros</ion-select-option>
       </ion-select>
     </ion-item>
@@ -80,4 +82,22 @@
       Salvar Evento
     </ion-button>
   </form>
+  <ion-card>
+    <ion-card-content>
+      <h2>Anunciar Eventos Sustentáveis</h2>
+      <p>
+        Siga estas dicas para garantir que seu evento seja alinhado aos princípios da sustentabilidade:
+      </p>
+      <ul>
+        <li>Escolha locais acessíveis para reduzir emissões de transporte.</li>
+        <li>Utilize materiais recicláveis ou reutilizáveis na organização.</li>
+        <li>Promova práticas de descarte consciente durante o evento.</li>
+        <li>Conscientize os participantes sobre o impacto ambiental.</li>
+      </ul>
+      <p>
+        Anuncie seu evento conosco e ajude a criar um futuro mais sustentável!
+      </p>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

@@ -37,7 +37,7 @@
 
       <ion-item (click)="presentLogoutAlert()">
         <ion-icon name="log-out-outline" slot="start"></ion-icon>
-        <ion-label>Logout</ion-label>
+        <ion-label>Sair</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>
@@ -72,7 +72,7 @@
             <img src="assets/imagens/produtos/escova-de-dentes.jpg" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Escova de dentes</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$8,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(1, $event)">Comprar</ion-button>
@@ -85,7 +85,7 @@
             <img src="assets/imagens/produtos/cosmeticos.jpg" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Kit de cosméticos</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$25,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(2, $event)">Comprar</ion-button>
@@ -101,7 +101,7 @@
             <img src="assets/imagens/produtos/garrafadeagua.jpg" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Garrafa térmica</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$14,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(3, $event)">Comprar</ion-button>
@@ -114,7 +114,7 @@
             <img src="assets/imagens/produtos/coporeutilizavel.jpg" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Copos reutilizáveis</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$10,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(4, $event)">Comprar</ion-button>
@@ -130,7 +130,7 @@
             <img src="assets/imagens/produtos/ecobag.avif" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Ecobag</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$12,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(5, $event)">Comprar</ion-button>
@@ -143,7 +143,7 @@
             <img src="assets/imagens/produtos/utensilios.avif" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Utensílios de cozinha</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$19,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(6, $event)">Comprar</ion-button>
@@ -159,7 +159,7 @@
             <img src="assets/imagens/produtos/saco.jpg" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Sacola</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$3,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(7, $event)">Comprar</ion-button>
@@ -172,7 +172,7 @@
             <img src="assets/imagens/produtos/oleo.jpg" class="product-image" alt="Imagem do Produto">
             <ion-card-header>
               <ion-card-title>Óleo natural</ion-card-title>
-              <ion-card-subtitle>Preço: R$XX,XX</ion-card-subtitle>
+              <ion-card-subtitle>Preço: R$8,00</ion-card-subtitle>
             </ion-card-header>
             <ion-card-content>
               <ion-button expand="block" color="primary" (click)="rotateAndNavigate(8, $event)">Comprar</ion-button>
@@ -184,20 +184,19 @@
       <!-- Produtos dinâmicos do banco de dados -->
       <div id="banco">
         <ion-row>
-          <ion-col size="6" *ngFor="let produto of produtos">
-            <ion-card (click)="rotateAndNavigate(produto.id, $event)">
-              <img [src]="produto.imagem ? 'assets/imagens/produtos/' + produto.imagem : 'assets/imagens/default.png'" 
-                   class="product-image" alt="Imagem do Produto">
-              <ion-card-header>
-                <ion-card-title>{{ produto.nome }}</ion-card-title>
-                <ion-card-subtitle>Preço: R$ {{ produto.preco }}</ion-card-subtitle>
-              </ion-card-header>
-              <ion-card-content>
-                <p>{{ produto.descricao }}</p>
-                <ion-button expand="block" color="primary">Comprar</ion-button>
-              </ion-card-content>
-            </ion-card>
-          </ion-col>
+            <ion-col size="6" *ngFor="let produto of produtos">
+                <ion-card (click)="rotateAndNavigate(produto.id, $event)">
+                  <img [src]="'http://localhost/app/uploads/' + produto.imagem" class="product-image" alt="Imagem do Produto">
+                    <ion-card-header>
+                        <ion-card-title>{{ produto.nome }}</ion-card-title>
+                        <ion-card-subtitle>Preço: R$ {{ produto.preco }}</ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <p>{{ produto.descricao }}</p>
+                        <ion-button expand="block" color="primary">Comprar</ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
         </ion-row>
-      </div>
+    </div>
       

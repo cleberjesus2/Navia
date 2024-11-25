@@ -1,13 +1,36 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>garrafatermica</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1">
+        <img src="assets/imagens/arrow-back-outline.svg">
+      </ion-back-button>
+    </ion-buttons>
+    <div class="barra">
+      <ion-title id="titulo-menu">Detalhes do Produto</ion-title>
+      <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="">
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">garrafatermica</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="product-container">
+    <img src="assets/imagens/produtos/garrafadeagua.jpg" style="width: 100%;" alt="Imagem do Produto" class="product-image" />
+    
+    <h1>{{ produto.nome }}</h1>
+    <p style="color: black;" class="product-price">Preço: R$ {{ produto.preco }}</p>
+    <p class="product-description">{{ produto.descricao }}</p>
+
+    <!-- Botão Comprar -->
+    <ion-button expand="full" class="comprar-button" (click)="mostrarFormularioCompra()">Comprar</ion-button>
+
+    <!-- Botão Adicionar ao Carrinho -->
+    <ion-button expand="full" class="add-to-cart-button" (click)="adicionarAoCarrinho()">Adicionar ao Carrinho</ion-button>
+  </div>
+
+  <ion-toast
+    [isOpen]="showToast"
+    message="{{ toastMessage }}"
+    duration="2000"
+    (didDismiss)="showToast = false">
+  </ion-toast>
 </ion-content>

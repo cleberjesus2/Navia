@@ -43,7 +43,7 @@ export class Tab3Page {
         },
         (error: any) => {
           console.error('Erro ao carregar perfil', error);
-          alert('Erro na requisição do perfil');
+         
         }
       );
     } else {

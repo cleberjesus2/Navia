@@ -4,17 +4,17 @@
       <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
     </ion-buttons>
     <div class="barra">
-         <ion-title id="titulo-menu">Anunciar produtos</ion-title>
-         <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="" srcset="">
-        </div>
+      <ion-title id="titulo-menu">Anunciar produtos</ion-title>
+      <img id="logo" width="60px" src="assets/imagens/navia-logo.png" alt="" />
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-card class="card-anunciar">
     <ion-card-header>
-      <ion-card-title style="color: rgb(0, 0, 0);">Anunciar Produto 🛒</ion-card-title>
-    </ion-card-header >
+      <ion-card-title style="color: rgb(0, 0, 0);">Anunciar Produto 🛒💚</ion-card-title>
+    </ion-card-header>
     <ion-card-content style="background-color: white;">
       <ion-list style="background-color: white;">
         <ion-item>
@@ -30,8 +30,10 @@
           <ion-input type="number" [(ngModel)]="productPrice" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Imagem do Produto</ion-label>
-          <input type="file" (change)="onFileSelected($event)" />
+          <ion-button expand="block" color="primary" (click)="fileInput.click()">
+            Escolher Imagem
+          </ion-button>
+          <input #fileInput type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
         </ion-item>
         <ion-item>
           <ion-label position="floating">Estoque</ion-label>
@@ -50,7 +52,6 @@
             <ion-select-option value="automotivo">Automotivo</ion-select-option>
             <ion-select-option value="esportes">Esportes</ion-select-option>
             <ion-select-option value="outros">Outros</ion-select-option>
-            <!-- Adicione outras categorias conforme necessário -->
           </ion-select>
         </ion-item>
         <ion-item>
@@ -95,5 +96,4 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
-
 </ion-content>

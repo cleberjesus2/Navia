@@ -62,4 +62,37 @@ ion-content {
   ion-select-option {
     --color: #000000; /* Cor do texto preto para as opções */
   }
+
+  ion-card h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000; /* Preto para texto */
+  }
   
+  ion-card ul {
+    margin: 0;
+    padding-left: 20px; /* Recuo para lista */
+  }
+  
+  ion-card ul li {
+    margin-bottom: 8px;
+  }
+  
+  ion-card p {
+    font-size: 1rem;
+    color: #000000; /* Texto cinza escuro */
+  }
+  
+  ion-card{
+    --background: #ffffff;
+    color: #000;
+  }
+  
+  .custom-select {
+    --placeholder-color: #FF5733; /* Cor do texto do valor selecionado */
+    --arrow-color: #FF5733; /* Cor da seta */
+  
+    &::part(native) {
+      color: #FF5733; /* Cor do texto das opções */
+    }
+  }
