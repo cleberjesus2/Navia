@@ -42,41 +42,51 @@ export class CreateEventPage {
   }
   
   saveEvent() {
-    console.log('Dados do evento a serem enviados:', this.evento);
+    const usuarioId = 1; // Pegue dinamicamente o ID do usuário logado
   
-    if (this.evento.titulo && this.evento.descricao && this.evento.data_hora && this.evento.local && this.evento.categoria && this.evento.cpf_cnpj && this.evento.telefone && this.evento.numero_segurancas >= 2) {
-      const formData = new FormData();
+    // Verificar se o usuário é um organizador aprovado
+    this.serviceProvider.verificarOrganizador(usuarioId).subscribe((res: any) => {
+      if (res.status === 'aprovado') {
+        console.log('Dados do evento a serem enviados:', this.evento);
   
-      // Adicionando os campos do evento ao FormData
-      for (const key in this.evento) {
-        if (Object.prototype.hasOwnProperty.call(this.evento, key)) {
-          formData.append(key, this.evento[key as keyof typeof this.evento] as string | Blob);
-        }
-      }
+        if (this.evento.titulo && this.evento.descricao && this.evento.data_hora && this.evento.local && this.evento.categoria && this.evento.cpf_cnpj && this.evento.telefone && this.evento.numero_segurancas >= 2) {
+          const formData = new FormData();
   
-      // Adicionando a imagem, se houver
-      if (this.eventoImagem) {
-        formData.append('imagem', this.eventoImagem);
-      }
-  
-      this.serviceProvider.addEvento(formData).subscribe(
-        (response: any) => {
-          console.log('Resposta ao salvar evento:', response);  // Adicione esse log
-          if (response.status === 'sucesso') {
-            this.presentToast('Evento anunciado com sucesso!', 'success');
-            this.router.navigate(['/tabs/tab1']); // Redireciona para tabs1
-          } else {
-            this.presentToast('Erro ao anunciar evento: ' + response.mensagem, 'danger');
+          // Adicionando os campos do evento ao FormData
+          for (const key in this.evento) {
+            if (Object.prototype.hasOwnProperty.call(this.evento, key)) {
+              formData.append(key, this.evento[key as keyof typeof this.evento] as string | Blob);
+            }
           }
-        },
-        error => {
-          console.error('Erro ao enviar dados', error);
-          this.presentToast('Erro ao anunciar evento', 'danger');
+  
+          // Adicionando a imagem, se houver
+          if (this.eventoImagem) {
+            formData.append('imagem', this.eventoImagem);
+          }
+  
+          this.serviceProvider.addEvento(formData).subscribe(
+            (response: any) => {
+              console.log('Resposta ao salvar evento:', response);
+              if (response.status === 'sucesso') {
+                this.presentToast('Evento anunciado com sucesso!', 'success');
+                this.router.navigate(['/tabs/tab1']); // Redireciona para tabs1
+              } else {
+                this.presentToast('Erro ao anunciar evento: ' + response.mensagem, 'danger');
+              }
+            },
+            error => {
+              console.error('Erro ao enviar dados', error);
+              this.presentToast('Erro ao anunciar evento', 'danger');
+            }
+          );
+        } else {
+          this.presentToast('Todos os campos obrigatórios devem ser preenchidos.', 'danger');
         }
-      );
-    } else {
-      this.presentToast('Todos os campos obrigatórios devem ser preenchidos.', 'danger');
-    }
+      } else {
+        this.presentToast('Você precisa ser um organizador aprovado para anunciar eventos.', 'danger');
+      }
+    });
   }
+  
   
 }

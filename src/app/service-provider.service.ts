@@ -82,4 +82,14 @@ export class ServiceProviderService {
     formData.append('file', file);
     return this.http.post(`${this.apiUrl}/upload_image.php`, formData);
   }
+
+  verificarOrganizador(usuarioId: number) {
+    return this.http.post('http://localhost/app/verificar_organizador.php', { usuario_id: usuarioId });
+  }
+  
+
+  registrarOrganizador(organizador: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/registrar-organizador`, organizador);
+  }
+
 }

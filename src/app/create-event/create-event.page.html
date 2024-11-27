@@ -59,15 +59,15 @@
       <input type="file" (change)="onFileSelected($event)" />
     </ion-item>
     
-    <!-- CPF/CNPJ do Vendedor -->
+    <!-- CPF/CNPJ do Organizador -->
     <ion-item>
-      <ion-label position="stacked">CPF/CNPJ do Vendedor</ion-label>
+      <ion-label position="stacked">CPF/CNPJ do Anunciante</ion-label>
       <ion-input placeholder="Digite o CPF ou CNPJ" [(ngModel)]="evento.cpf_cnpj" name="cpf_cnpj" required></ion-input>
     </ion-item>
 
     <!-- Telefone do Vendedor -->
     <ion-item>
-      <ion-label position="stacked">Telefone do Vendedor</ion-label>
+      <ion-label position="stacked">Telefone do Anunciante</ion-label>
       <ion-input placeholder="Digite o telefone" [(ngModel)]="evento.telefone" name="telefone" type="tel" required></ion-input>
     </ion-item>
 

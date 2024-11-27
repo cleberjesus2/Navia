@@ -76,13 +76,17 @@ const routes: Routes = [
     path: 'oleonatural',
     loadChildren: () => import('./oleonatural/oleonatural.module').then( m => m.OleonaturalPageModule)
   },
+  {
+    path: 'registrar-organizador',
+    loadChildren: () => import('./registrar-organizador/registrar-organizador.module').then(m => m.RegistrarOrganizadorPageModule)
+  },
  
  
   {
     path: '**', // Rota de fallback, caso a URL seja inválida
     redirectTo: 'login',
   },
-
+  
 
 
  

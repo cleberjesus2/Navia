@@ -1,0 +1,38 @@
+.barra{
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+/* Define o fundo branco para o formulário */
+ion-content {
+    --background: #ffffff; /* Fundo branco */
+  }
+
+  .page-content {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 16px; /* Espaçamento nas laterais */
+  }
+  
+  ion-item {
+    --background: transparent; /* Sem fundo extra nos campos */
+    --border-color: #dcdcdc; /* Borda cinza clara */
+    margin-bottom: 12px; /* Espaçamento entre os campos */
+  }
+  
+  ion-label {
+    font-size: 14px; /* Texto de tamanho mediano */
+    color: #555555; /* Texto em cinza */
+  }
+  
+  ion-input {
+    --color: #333333; /* Cor do texto no input */
+  }
+  
+  ion-button {
+    --background: #224D53; /* Azul simples */
+    color: #ffffff;
+    --background-activated: #ffffff; /* Azul mais escuro no clique */
+    margin-top: 16px;
+  }
+  
