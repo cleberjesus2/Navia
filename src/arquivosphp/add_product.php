@@ -1,30 +1,68 @@
 <?php
-include 'db.php';
+// Configurações do banco de dados
+$servername = "localhost";
+$username = "root"; // Substitua pelo seu usuário
+$password = ""; // Substitua pela sua senha
+$dbname = "naviaapp"; // Substitua pelo nome correto do seu banco de dados
 
-header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Origin: *"); 
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS"); 
+header("Access-Control-Allow-Headers: Content-Type"); 
 
-$data = json_decode(file_get_contents("php://input"));
+// Conexão com o banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-if (isset($data->name) && isset($data->description) && isset($data->price) && isset($data->stock) && isset($data->category) && isset($data->cpfCnpj) && isset($data->telefone)) {
-    $sql = "INSERT INTO produtos (nome, descricao, preco, estoque, categoria, cpfCnpj, telefone) VALUES (:name, :description, :price, :stock, :category, :cpfCnpj, :telefone)";
+if ($conn->connect_error) {
+    die(json_encode(["status" => "erro", "mensagem" => "Conexão falhou: " . $conn->connect_error]));
+}
+
+// Recebe os dados do produto
+$nome = $_POST['name'] ?? '';
+$descricao = $_POST['description'] ?? '';
+$preco = $_POST['price'] ?? 0;
+$estoque = $_POST['stock'] ?? 0;
+$categoria = $_POST['category'] ?? '';
+$cpfCnpj = $_POST['cpfCnpj'] ?? '';
+$telefone = $_POST['telefone'] ?? '';
+$image = $_FILES['image'] ?? null;
+
+// Validação básica dos dados
+if (empty($nome) || empty($descricao) || empty($preco) || empty($estoque) || empty($categoria) || empty($cpfCnpj) || empty($telefone) || !$image) {
+    echo json_encode(["status" => "erro", "mensagem" => "Todos os campos são obrigatórios."]);
+    exit;
+}
+
+// Diretório onde as imagens serão salvas
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($image["name"]);
+$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+// Verifica se a imagem é um arquivo de imagem real
+if (isset($_POST["submit"])) {
+    $check = getimagesize($image["tmp_name"]);
+    if ($check === false) {
+        echo json_encode(["status" => "erro", "mensagem" => "O arquivo não é uma imagem."]);
+        exit;
+    }
+}
+
+// Move o arquivo para o diretório de uploads
+if (move_uploaded_file($image["tmp_name"], $target_file)) {
+    // Insere os dados do produto no banco de dados
+    $sql = "INSERT INTO produtos (nome, descricao, preco, estoque, categoria, cpfCnpj, telefone, imagem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':name', $data->name);
-    $stmt->bindParam(':description', $data->description);
-    $stmt->bindParam(':price', $data->price);
-    $stmt->bindParam(':stock', $data->stock);
-    $stmt->bindParam(':category', $data->category);
-    $stmt->bindParam(':cpfCnpj', $data->cpfCnpj);
-    $stmt->bindParam(':telefone', $data->telefone);
+    $stmt->bind_param("ssdissss", $nome, $descricao, $preco, $estoque, $categoria, $cpfCnpj, $telefone, $image["name"]);
 
     if ($stmt->execute()) {
-        echo json_encode(["status" => "sucesso", "mensagem" => "Produto adicionado com sucesso"]);
+        echo json_encode(["status" => "sucesso"]);
     } else {
-        echo json_encode(["status" => "erro", "mensagem" => "Erro ao adicionar produto"]);
+        echo json_encode(["status" => "erro", "mensagem" => $stmt->error]);
     }
+
+    $stmt->close();
 } else {
-    echo json_encode(["status" => "erro", "mensagem" => "Dados incompletos"]);
+    echo json_encode(["status" => "erro", "mensagem" => "Desculpe, ocorreu um erro ao fazer o upload da imagem."]);
 }
+
+$conn->close();
 ?>
