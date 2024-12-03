@@ -42,7 +42,7 @@ Ionic CLI configurado.
 Banco de dados MySQL configurado.
 Instalação
 Clone o repositório:
-git clone https://github.com/seu-usuario/Navia.git  
+git clone https://github.com/cleberjesus2/Navia.git  
 Acesse o diretório do projeto:
 cd Navia  
 Instale as dependências:
